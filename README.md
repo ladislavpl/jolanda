@@ -13,12 +13,14 @@ This project is a web-based tribute to the legendary **Jolanda**, bringing her i
   - "Glassmorphism" UI design with a mystical purple and gold theme.
   - Floating card animations.
 - **Responsive Design**: Works on desktop and mobile devices.
+- **PWA Ready**: Installable as a native-like app on your device (works offline!).
 
 ## 🛠️ Technology Stack
 
 - **HTML5**: Semantic structure.
 - **CSS3**: Variables, Flexbox, Animations, Backdrop-filter (Glassmorphism).
 - **JavaScript (Vanilla)**: DOM manipulation, random logic, async/await-like timing simulations.
+- **PWA**: Service Worker & Web App Manifest for offline support and installation.
 - **Fonts**: 'Cinzel' (titles) and 'Playfair Display' (body) from Google Fonts.
 
 ## 🚀 How to Run
@@ -38,4 +40,4 @@ The deck includes various cards such as:
 
 ## 📜 License
 
-MIT License
+This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) file for details.
