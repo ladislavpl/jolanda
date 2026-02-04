@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jolanda Cigánské Karty</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="overlay"></div>
+    <div class="app-container">
+        <header>
+            <h1 class="glow-text">Jolanda</h1>
+            <p class="subtitle">Vidím velký špatný, ale i velký dobrý...</p>
+        </header>
+
+        <main>
+            <div class="controls">
+                <button id="draw-btn" class="mystic-btn">Vyložit Karty</button>
+            </div>
+
+            <div class="table-surface">
+                <div class="card-slot" id="slot-1">
+                    <div class="card-placeholder">1</div>
+                </div>
+                <div class="card-slot" id="slot-2">
+                    <div class="card-placeholder">2</div>
+                </div>
+                <div class="card-slot" id="slot-3">
+                    <div class="card-placeholder">3</div>
+                </div>
+            </div>
+
+            <div id="interpretation" class="interpretation-box hidden">
+                <h2>Výklad</h2>
+                <div id="prediction-text"></div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
