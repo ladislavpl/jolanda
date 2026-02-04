@@ -38,7 +38,4 @@ The deck includes various cards such as:
 
 ## 📜 License
 
-This project is a fan tribute and is intended for entertainment purposes only.
-
----
-*© 2026 Jolanda Tribute*
+MIT License
