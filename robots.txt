@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://ladislavpl.github.io/jolanda/sitemap.xml
