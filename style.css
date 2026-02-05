@@ -7,6 +7,9 @@
     --card-bg: #1a0b2e;
     --glass-bg: rgba(26, 11, 46, 0.7);
     --glass-border: rgba(255, 215, 0, 0.3);
+    --ct-blue: #00428d;
+    --ct-red: #e3001a;
+    --tv-frame: #1a1a1a;
 }
 
 * {
@@ -17,23 +20,121 @@
 
 body {
     font-family: 'Playfair Display', serif;
-    background-color: var(--bg-color);
+    background-color: #000;
     color: var(--text-color);
-    overflow-x: hidden;
+    overflow: hidden;
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: radial-gradient(circle at 50% 50%, #2a0a4a 0%, #0d0015 80%);
+    background: radial-gradient(circle at center, #222 0%, #000 100%);
+    /* Living room background feel */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1593359674241-55cd0bedee40?q=80&w=2070&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+}
+
+.tv-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2.5vw;
+}
+
+.tv-frame {
+    background: var(--tv-frame);
+    padding: 20px;
+    border-radius: 40px;
+    box-shadow:
+        0 0 50px rgba(0, 0, 0, 0.8),
+        inset 0 0 40px rgba(255, 255, 255, 0.05);
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    aspect-ratio: 16 / 9;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 8px solid #333;
+}
+
+.screen {
+    flex: 1;
+    background: #000;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: inset 0 0 100px rgba(0, 0, 0, 1);
+    display: flex;
+    flex-direction: column;
+}
+
+.crt-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 100;
+}
+
+.scanlines {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%,
+            rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg,
+            rgba(255, 0, 0, 0.06),
+            rgba(0, 255, 0, 0.02),
+            rgba(0, 0, 255, 0.06));
+    background-size: 100% 4px, 3px 100%;
+    position: absolute;
+}
+
+.vignette {
+    width: 100%;
+    height: 100%;
+    box-shadow: inset 0 0 150px rgba(0, 0, 0, 0.7);
+    position: absolute;
+}
+
+.flicker {
+    width: 100%;
+    height: 100%;
+    background: rgba(18, 16, 16, 0.05);
+    opacity: 0;
+    position: absolute;
+    animation: flicker 0.15s infinite;
+}
+
+@keyframes flicker {
+    0% {
+        opacity: 0.1;
+    }
+
+    50% {
+        opacity: 0.02;
+    }
+
+    100% {
+        opacity: 0.1;
+    }
 }
 
 .app-container {
     width: 100%;
-    max-width: 800px;
+    height: 100%;
     padding: 2rem;
     position: relative;
     z-index: 10;
     text-align: center;
+    background: var(--bg-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow-y: auto;
 }
 
 h1 {

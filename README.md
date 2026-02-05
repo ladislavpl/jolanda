@@ -25,9 +25,14 @@ This project is a web-based tribute to the legendary **Jolanda**, bringing her i
 
 ## 🚀 How to Run
 
-1.  Clone this repository or download the files.
-2.  Open `index.html` in any modern web browser.
-3.  Click the **"Vyložit Karty"** button to start a reading.
+You can experience Jolanda's wisdom in multiple ways:
+
+- **Web Version**: Visit [ladislavpl.github.io/jolanda](https://ladislavpl.github.io/jolanda) directly in your browser.
+- **Desktop App**: Download the Electron app for **Windows** or **Linux** from the [GitHub Releases](https://github.com/ladislavpl/jolanda/releases) page.
+- **Local Development**: Clone this repository and open `index.html` in any modern web browser.
+
+> [!NOTE]
+> This project is **vibecoded by AI** and is meant only for fun. It's a tribute to the unique energy of Jolanda.
 
 ## 🃏 Cards & Meanings
 

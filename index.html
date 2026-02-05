@@ -56,35 +56,60 @@
 </head>
 
 <body>
-    <div class="overlay"></div>
-    <div class="app-container">
-        <header>
-            <h1 class="glow-text">Jolanda</h1>
-            <p class="subtitle">Vidím velký špatný, ale i velký dobrý...</p>
-        </header>
-
-        <main>
-            <div class="controls">
-                <button id="draw-btn" class="mystic-btn">Vyložit Karty</button>
-            </div>
-
-            <div class="table-surface">
-                <div class="card-slot" id="slot-1">
-                    <div class="card-placeholder">1</div>
+    <div class="tv-container">
+        <div class="tv-frame">
+            <div class="screen">
+                <div class="crt-overlay">
+                    <div class="scanlines"></div>
+                    <div class="vignette"></div>
+                    <div class="flicker"></div>
                 </div>
-                <div class="card-slot" id="slot-2">
-                    <div class="card-placeholder">2</div>
-                </div>
-                <div class="card-slot" id="slot-3">
-                    <div class="card-placeholder">3</div>
-                </div>
-            </div>
 
-            <div id="interpretation" class="interpretation-box hidden">
-                <h2>Výklad</h2>
-                <div id="prediction-text"></div>
+                <div class="ct-logo">
+                    <span class="ct-logo-box">ČT</span> 1
+                </div>
+
+                <div class="tv-clock" id="tv-clock">19:15:11</div>
+
+                <div class="app-container">
+                    <header>
+                        <h1 class="glow-text">Jolanda</h1>
+                        <p class="subtitle">Vidím velký špatný, ale i velký dobrý...</p>
+                    </header>
+
+                    <main>
+                        <div class="controls">
+                            <button id="draw-btn" class="mystic-btn">Vyložit Karty</button>
+                        </div>
+
+                        <div class="table-surface">
+                            <div class="card-slot" id="slot-1">
+                                <div class="card-placeholder">1</div>
+                            </div>
+                            <div class="card-slot" id="slot-2">
+                                <div class="card-placeholder">2</div>
+                            </div>
+                            <div class="card-slot" id="slot-3">
+                                <div class="card-placeholder">3</div>
+                            </div>
+                        </div>
+
+                        <div id="interpretation" class="interpretation-box hidden">
+                            <h2>Výklad</h2>
+                            <div id="prediction-text"></div>
+                        </div>
+                    </main>
+                </div>
+
+                <div class="ticker-tape">
+                    <div class="ticker-label">ŽIVĚ</div>
+                    <div class="ticker-content" id="ticker-content">
+                        Mimořádné vysílání: Jolanda odhaluje budoucnost v přímém přenosu... +++ Vidím velký špatný, ale
+                        i velký dobrý... +++ Karty nelžou, lžou jenom lidi... +++ Pozor na vysoký napětí... +++
+                    </div>
+                </div>
             </div>
-        </main>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>

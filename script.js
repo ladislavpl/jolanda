@@ -7,6 +7,20 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
     const interpretationBox = document.getElementById('interpretation');
     const predictionText = document.getElementById('prediction-text');
+    const tvClock = document.getElementById('tv-clock');
+
+    // Clock Logic
+    function updateClock() {
+        const now = new Date();
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        const seconds = String(now.getSeconds()).padStart(2, '0');
+        if (tvClock) {
+            tvClock.textContent = `${hours}:${minutes}:${seconds}`;
+        }
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
 
     let deck = [];
     let intros = [];
