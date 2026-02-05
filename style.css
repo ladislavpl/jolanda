@@ -327,123 +327,138 @@ h1 {
     padding-top: 1rem;
 }
 
-/* Responsive Design */
+/* ČT Overlays */
+.ct-logo {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    z-index: 110;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    opacity: 0.8;
+}
+
+.ct-logo-box {
+    background: #fff;
+    color: var(--ct-blue);
+    padding: 2px 8px;
+    border-radius: 3px;
+}
+
+.tv-clock {
+    position: absolute;
+    top: 20px;
+    left: 30px;
+    z-index: 110;
+    color: #fff;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.2rem;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.ticker-tape {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: var(--ct-blue);
+    color: #fff;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    z-index: 110;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    border-top: 2px solid var(--ct-red);
+}
+
+.ticker-label {
+    background: var(--ct-red);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    font-weight: bold;
+    z-index: 120;
+    position: relative;
+    box-shadow: 5px 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.ticker-content {
+    white-space: nowrap;
+    animation: ticker 30s linear infinite;
+    padding-left: 100%;
+    font-size: 1.1rem;
+}
+
+@keyframes ticker {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/* Responsive Design Overrides */
 @media (max-width: 768px) {
+    .tv-container {
+        padding: 0;
+    }
+
+    .tv-frame {
+        border-radius: 0;
+        border: none;
+        aspect-ratio: auto;
+        height: 100vh;
+    }
+
     h1 {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
 
     .app-container {
         padding: 1rem;
+        padding-bottom: 60px;
+        /* Space for ticker */
     }
 
-    .subtitle {
+    .ct-logo {
+        top: 10px;
+        right: 15px;
+        font-size: 1.2rem;
+    }
+
+    .tv-clock {
+        top: 10px;
+        left: 15px;
         font-size: 1rem;
-        margin-bottom: 2rem;
     }
 
     .table-surface {
-        gap: 15px;
-        margin: 2rem 0;
+        gap: 10px;
     }
 
     .card-slot {
-        width: 120px;
-        height: 200px;
-    }
-
-    .card-title {
-        font-size: 0.8rem;
+        width: 100px;
+        height: 160px;
     }
 
     .card-icon {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
 
     .mystic-btn {
         padding: 12px 30px;
         font-size: 1.2rem;
         width: 100%;
-        max-width: 300px;
     }
-
-    /* ČT Overlays */
-    .ct-logo {
-        position: absolute;
-        top: 20px;
-        right: 30px;
-        z-index: 110;
-        color: #fff;
-        font-family: Arial, sans-serif;
-        font-weight: bold;
-        font-size: 1.5rem;
-        display: flex;
-        align-items: center;
-        gap: 5px;
-        opacity: 0.8;
-    }
-
-    .ct-logo-box {
-        background: #fff;
-        color: var(--ct-blue);
-        padding: 2px 8px;
-        border-radius: 3px;
-    }
-
-    .tv-clock {
-        position: absolute;
-        top: 20px;
-        left: 30px;
-        z-index: 110;
-        color: #fff;
-        font-family: 'Courier New', Courier, monospace;
-        font-size: 1.2rem;
-        background: rgba(0, 0, 0, 0.5);
-        padding: 5px 10px;
-        border-radius: 4px;
-    }
-
-    .ticker-tape {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        background: var(--ct-blue);
-        color: #fff;
-        height: 40px;
-        display: flex;
-        align-items: center;
-        z-index: 110;
-        font-family: Arial, sans-serif;
-        overflow: hidden;
-        border-top: 2px solid var(--ct-red);
-    }
-
-    .ticker-label {
-        background: var(--ct-red);
-        height: 100%;
-        display: flex;
-        align-items: center;
-        padding: 0 20px;
-        font-weight: bold;
-        z-index: 120;
-        position: relative;
-        box-shadow: 5px 0 10px rgba(0, 0, 0, 0.3);
-    }
-
-    .ticker-content {
-        white-space: nowrap;
-        animation: ticker 30s linear infinite;
-        padding-left: 100%;
-        font-size: 1.1rem;
-    }
-
-    @keyframes ticker {
-        0% {
-            transform: translateX(0);
-        }
-
-        100% {
-            transform: translateX(-100%);
-        }
-    }
+}
