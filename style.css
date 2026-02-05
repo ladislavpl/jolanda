@@ -131,18 +131,16 @@ body {
     background: var(--bg-color);
     overflow-y: auto;
     display: block;
-    /* Standard scroll container */
+    /* Robust scroll container */
 }
 
 .scroll-content {
     width: 100%;
     min-height: 100%;
-    padding: 80px 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
+    padding: 100px 20px 80px 20px;
+    /* Ample space for TV overlays */
     text-align: center;
+    box-sizing: border-box;
 }
 
 h1 {
