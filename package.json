@@ -1,0 +1,24 @@
+{
+  "name": "jolanda",
+  "version": "1.0.0",
+  "description": "> *\"Vidím velký špatný, ale i velký dobrý...\"*",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ladislavpl/jolanda.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ladislavpl/jolanda/issues"
+  },
+  "homepage": "https://github.com/ladislavpl/jolanda#readme",
+  "devDependencies": {
+    "electron": "^40.1.0"
+  }
+}
