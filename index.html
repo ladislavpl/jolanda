@@ -4,6 +4,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
+=======
+    <title>Jolanda</title>
+
+    <!-- SEO -->
+    <meta name="description" content="Jolanda - Cigánské Karty. Vidím velký špatný, ale i velký dobrý...">
+    <meta name="keywords" content="Jolanda, cigánské karty, výklad, věštba, budoucnost">
+    <meta name="author" content="Ladislav Jaromír Pleštil">
+
+    <!-- Open Graph (Social Media) -->
+    <meta property="og:title" content="Jolanda - Cigánské Karty">
+    <meta property="og:description" content="Jolanda - Cigánské Karty. Vidím velký špatný, ale i velký dobrý...">
+    <meta property="og:image" content="https://ladislavpl.github.io/jolanda/assets/icons/icon.svg">
+    <meta property="og:url" content="https://ladislavpl.github.io/jolanda/">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Jolanda - Cigánské Karty">
+    <meta name="twitter:description" content="Jolanda - Cigánské Karty. Vidím velký špatný, ale i velký dobrý...">
+    <meta name="twitter:image" content="https://ladislavpl.github.io/jolanda/assets/icons/icon.svg">
+
+    <!-- Canonical Link -->
+    <link rel="canonical" href="https://ladislavpl.github.io/jolanda/">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Jolanda Cigánské Karty",
+      "operatingSystem": "Any",
+      "applicationCategory": "EntertainmentApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "CZK"
+      }
+    }
+    </script>
+
+    <link rel="icon" type="image/svg+xml" href="assets/icons/icon.svg" sizes="any">
+>>>>>>> main
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -14,35 +57,60 @@
 </head>
 
 <body>
-    <div class="overlay"></div>
-    <div class="app-container">
-        <header>
-            <h1 class="glow-text">Jolanda</h1>
-            <p class="subtitle">Vidím velký špatný, ale i velký dobrý...</p>
-        </header>
-
-        <main>
-            <div class="controls">
-                <button id="draw-btn" class="mystic-btn">Vyložit Karty</button>
-            </div>
-
-            <div class="table-surface">
-                <div class="card-slot" id="slot-1">
-                    <div class="card-placeholder">1</div>
+    <div class="tv-container">
+        <div class="tv-frame">
+            <div class="screen">
+                <div class="crt-overlay">
+                    <div class="scanlines"></div>
+                    <div class="vignette"></div>
+                    <div class="flicker"></div>
                 </div>
-                <div class="card-slot" id="slot-2">
-                    <div class="card-placeholder">2</div>
-                </div>
-                <div class="card-slot" id="slot-3">
-                    <div class="card-placeholder">3</div>
-                </div>
-            </div>
 
-            <div id="interpretation" class="interpretation-box hidden">
-                <h2>Výklad</h2>
-                <div id="prediction-text"></div>
+                <div class="ct-logo">
+                    <span class="ct-logo-box">ČT</span> 1
+                </div>
+
+                <div class="tv-clock" id="tv-clock">19:15:11</div>
+
+                <div class="app-container">
+                    <header>
+                        <h1 class="glow-text">Jolanda</h1>
+                        <p class="subtitle">Vidím velký špatný, ale i velký dobrý...</p>
+                    </header>
+
+                    <main>
+                        <div class="controls">
+                            <button id="draw-btn" class="mystic-btn">Vyložit Karty</button>
+                        </div>
+
+                        <div class="table-surface">
+                            <div class="card-slot" id="slot-1">
+                                <div class="card-placeholder">1</div>
+                            </div>
+                            <div class="card-slot" id="slot-2">
+                                <div class="card-placeholder">2</div>
+                            </div>
+                            <div class="card-slot" id="slot-3">
+                                <div class="card-placeholder">3</div>
+                            </div>
+                        </div>
+
+                        <div id="interpretation" class="interpretation-box hidden">
+                            <h2>Výklad</h2>
+                            <div id="prediction-text"></div>
+                        </div>
+                    </main>
+                </div>
+
+                <div class="ticker-tape">
+                    <div class="ticker-label">ŽIVĚ</div>
+                    <div class="ticker-content" id="ticker-content">
+                        Mimořádné vysílání: Jolanda odhaluje budoucnost v přímém přenosu... +++ Vidím velký špatný, ale
+                        i velký dobrý... +++ Karty nelžou, lžou jenom lidi... +++ Pozor na vysoký napětí... +++
+                    </div>
+                </div>
             </div>
-        </main>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
