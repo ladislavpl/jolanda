@@ -14,6 +14,7 @@ const createWindow = () => {
     })
 
     win.loadFile('index.html')
+    win.maximize()
 }
 
 app.whenReady().then(() => {
