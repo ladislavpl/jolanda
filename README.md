@@ -7,19 +7,21 @@ This project is a web-based tribute to the legendary **Jolanda**, bringing her i
 ## ✨ Features
 
 - **Interactive Card Reading**: Draw 3 cards to reveal your fate.
-- **Authentic Interpretations**: Card meanings and introductions inspired by Jolanda's style.
-- **Visual Effects**:
-  - CSS-based card flipping animations.
-  - "Glassmorphism" UI design with a mystical purple and gold theme.
-  - Floating card animations.
-- **Responsive Design**: Works on desktop and mobile devices.
+- **2011 Czech TV Aesthetic**: A nostalgic redesign emulating a classic public television broadcast.
+- **CRT Visual Effects**:
+  - Scanlines, flicker animations, and vignette for an authentic TV feel.
+  - Interactive "Glassmorphism" interpretation box.
+- **Broadcast Overlays**:
+  - **ČT1 Style Logo** and live digital clock.
+  - **Live News Ticker** with iconic Jolanda quotes.
+- **Responsive Design**: The TV frame and broadcast graphics scale gracefully for desktop and mobile devices.
 - **PWA Ready**: Installable as a native-like app on your device (works offline!).
 
 ## 🛠️ Technology Stack
 
-- **HTML5**: Semantic structure.
-- **CSS3**: Variables, Flexbox, Animations, Backdrop-filter (Glassmorphism).
-- **JavaScript (Vanilla)**: DOM manipulation, random logic, async/await-like timing simulations.
+- **HTML5**: Semantic structure for the TV screen and broadcast elements.
+- **CSS3**: Variables, Flexbox/Grid, CRT animations, and Backdrop-filter effects.
+- **JavaScript (Vanilla)**: DOM manipulation, randomization logic, and real-time clock synchronization.
 - **PWA**: Service Worker & Web App Manifest for offline support and installation.
 - **Fonts**: 'Cinzel' (titles) and 'Playfair Display' (body) from Google Fonts.
 
