@@ -1,6 +1,6 @@
 {
-  "name": "Jolanda",
-  "version": "1.1.0",
+  "name": "jolanda",
+  "version": "2.0.0",
   "description": "> *\"Vidím velký špatný, ale i velký dobrý...\"*",
   "main": "main.js",
   "scripts": {
