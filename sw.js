@@ -6,7 +6,7 @@ const ASSETS = [
     './script.js',
     './data.json',
     './manifest.json',
-    './assets/icons/icon.svg'
+    './assets/icons/icon.png'
 ];
 
 self.addEventListener('install', (event) => {
@@ -64,7 +64,7 @@ self.addEventListener('fetch', (event) => {
     // BUT, for development/frequent updates, Network First is often safer.
     // However, for a PWA 'Offline First' experience, Cache First is standard.
     // The key fix is `skipWaiting` + `clients.claim` + `controllerchange` reload.
-    
+
     event.respondWith(
         caches.match(event.request).then((response) => {
             return response || fetch(event.request).then((networkResponse) => {
