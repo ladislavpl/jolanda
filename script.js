@@ -24,25 +24,46 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let deck = [];
     let intros = [];
+    let isDrawing = false;
 
     // Load Data
-    fetch('./data.json')
-        .then(response => response.json())
-        .then(data => {
+    async function loadData() {
+        try {
+            const response = await fetch('./data.json');
+            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+            const data = await response.json();
             deck = data.deck;
             intros = data.intros;
 
             // Enable interaction only after data is loaded
             drawBtn.addEventListener('click', () => {
-                drawCards();
+                if (!isDrawing) drawCards();
             });
-        })
-        .catch(err => {
+        } catch (err) {
             console.error('Error loading data:', err);
             predictionText.innerHTML = '<p class="intro">Chyba v matrixu! (Nepodařilo se načíst karty)</p>';
-        });
+            interpretationBox.classList.remove('hidden');
+            interpretationBox.classList.add('visible');
+        }
+    }
+
+    loadData();
+
+    function shuffle(array) {
+        const newArray = [...array];
+        for (let i = newArray.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+        }
+        return newArray;
+    }
 
     function drawCards() {
+        if (deck.length < 3) return;
+        isDrawing = true;
+        drawBtn.disabled = true;
+        drawBtn.style.opacity = '0.5';
+
         // Reset slots
         slots.forEach(slot => {
             slot.innerHTML = '';
@@ -50,8 +71,8 @@ document.addEventListener('DOMContentLoaded', () => {
         interpretationBox.classList.remove('visible');
         interpretationBox.classList.add('hidden');
 
-        // Unique random cards
-        const shuffled = [...deck].sort(() => 0.5 - Math.random());
+        // Unique random cards using Fisher-Yates shuffle
+        const shuffled = shuffle(deck);
         const drawnCards = shuffled.slice(0, 3);
 
         // Render cards (with delay for effect)
@@ -64,6 +85,9 @@ document.addEventListener('DOMContentLoaded', () => {
         // Show interpretation
         setTimeout(() => {
             showInterpretation(drawnCards);
+            isDrawing = false;
+            drawBtn.disabled = false;
+            drawBtn.style.opacity = '1';
         }, 1500);
     }
 
@@ -74,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="card-inner">
                 <div class="card-back">Jobto</div>
                 <div class="card-front">
-                    <div class="card-icon">${card.icon}</div>
+                    <div class="card-icon" role="img" aria-label="${card.name}">${card.icon}</div>
                     <div class="card-title">${card.name}</div>
                 </div>
             </div>

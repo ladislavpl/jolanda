@@ -24,32 +24,36 @@ self.addEventListener('fetch', (event) => {
         event.respondWith(
             caches.open(CACHE_NAME).then((cache) => {
                 return cache.match(event.request).then((response) => {
-                    // Cache Hit or Network Fallback
-                    return response || fetch(event.request).then((networkResponse) => {
-                        // Cache the network response for future
+                    if (response) return response;
+                    return fetch(event.request).then((networkResponse) => {
                         cache.put(event.request, networkResponse.clone());
                         return networkResponse;
-                    }).catch((err) => {
-                        // If both cache and network fail, return a fallback or nothing (browser handles error)
-                        // Returning a 404 allows the promise to resolve, silencing the "Uncaught" error.
-                        // The font request will simply fail in the network tab.
-                        return new Response('', { status: 404, statusText: 'Offline' });
-                    });
+                    }).catch(() => new Response('', { status: 404, statusText: 'Offline' }));
                 });
             })
         );
         return;
     }
 
+    // Default strategy: Cache first, then network
     event.respondWith(
-        caches.match(event.request)
-            .then((response) => {
-                return response || fetch(event.request).catch((err) => {
-                    console.log('Fetch failed for:', event.request.url);
-                    // For navigation requests, we could return an offline page here
-                    // For now, just ensuring we don't return undefined to respondWith
-                    return new Response('', { status: 404, statusText: 'Offline' });
-                });
-            })
+        caches.match(event.request).then((response) => {
+            return response || fetch(event.request).then((networkResponse) => {
+                // Optionally cache new assets on fly
+                if (networkResponse.ok && event.request.method === 'GET') {
+                    const cacheCopy = networkResponse.clone();
+                    caches.open(CACHE_NAME).then(cache => {
+                        cache.put(event.request, cacheCopy);
+                    });
+                }
+                return networkResponse;
+            }).catch(() => {
+                // If it's a navigation request, we could show an offline page
+                if (event.request.mode === 'navigate') {
+                    return caches.match('./index.html');
+                }
+                return new Response('', { status: 404, statusText: 'Offline' });
+            });
+        })
     );
 });
