@@ -12,7 +12,7 @@ This project is a web-based tribute to the legendary **Jolanda**, bringing her i
   - Scanlines, flicker animations, and vignette for an authentic TV feel.
   - Interactive "Glassmorphism" interpretation box.
 - **Broadcast Overlays**:
-  - **ČT1 Style Logo** and live digital clock.
+  - **TV Barrandov Style Logo** and live digital clock.
   - **Live News Ticker** with iconic Jolanda quotes.
 - **Responsive Design**: The TV frame and broadcast graphics scale gracefully for desktop and mobile devices.
 - **PWA Ready**: Installable as a native-like app on your device (works offline!).
@@ -22,6 +22,7 @@ This project is a web-based tribute to the legendary **Jolanda**, bringing her i
 - **HTML5**: Semantic structure for the TV screen and broadcast elements.
 - **CSS3**: Variables, Flexbox/Grid, CRT animations, and Backdrop-filter effects.
 - **JavaScript (Vanilla)**: DOM manipulation, randomization logic, and real-time clock synchronization.
+- **Electron**: Cross-platform desktop application wrapper.
 - **PWA**: Service Worker & Web App Manifest for offline support and installation.
 - **Fonts**: 'Cinzel' (titles) and 'Playfair Display' (body) from Google Fonts.
 
