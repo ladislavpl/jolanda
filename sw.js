@@ -1,4 +1,4 @@
-const CACHE_NAME = 'jolanda-v4';
+const CACHE_NAME = 'jolanda-v5';
 const ASSETS = [
     './',
     './index.html',
@@ -10,9 +10,31 @@ const ASSETS = [
 ];
 
 self.addEventListener('install', (event) => {
+    // Force the waiting service worker to become the active service worker.
+    self.skipWaiting();
     event.waitUntil(
         caches.open(CACHE_NAME)
             .then((cache) => cache.addAll(ASSETS))
+    );
+});
+
+self.addEventListener('activate', (event) => {
+    // Claim any clients immediately, so that the new service worker controls the page
+    // without a reload.
+    event.waitUntil(self.clients.claim());
+
+    // Remove old caches
+    event.waitUntil(
+        caches.keys().then((cacheNames) => {
+            return Promise.all(
+                cacheNames.map((cacheName) => {
+                    if (cacheName !== CACHE_NAME) {
+                        console.log('Deleting old cache:', cacheName);
+                        return caches.delete(cacheName);
+                    }
+                })
+            );
+        })
     );
 });
 
@@ -35,7 +57,14 @@ self.addEventListener('fetch', (event) => {
         return;
     }
 
-    // Default strategy: Cache first, then network
+    // Default strategy: Network first (for fresh content), fallback to cache
+    // Or Stale-While-Revalidate could be better, but let's stick to a robust update strategy.
+    // Actually, stick to Cache First but with the lifecycle updates above,
+    // the next reload (triggered by controllerchange in script.js) will get new content.
+    // BUT, for development/frequent updates, Network First is often safer.
+    // However, for a PWA 'Offline First' experience, Cache First is standard.
+    // The key fix is `skipWaiting` + `clients.claim` + `controllerchange` reload.
+    
     event.respondWith(
         caches.match(event.request).then((response) => {
             return response || fetch(event.request).then((networkResponse) => {

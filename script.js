@@ -10,6 +10,16 @@ document.addEventListener('DOMContentLoaded', () => {
                     console.log('ServiceWorker registration failed: ', err);
                 });
         });
+
+        // Listen for the controllerchange event
+        // This fires when the service worker controlling the page changes
+        // (e.g., when a new SW takes over via skipWaiting)
+        let refreshing;
+        navigator.serviceWorker.addEventListener('controllerchange', () => {
+            if (refreshing) return;
+            refreshing = true;
+            window.location.reload();
+        });
     }
 
     const drawBtn = document.getElementById('draw-btn');
