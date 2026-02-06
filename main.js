@@ -6,7 +6,7 @@ const createWindow = () => {
         width: 1000,
         height: 700,
         show: false,
-        backgroundColor: '#0d0015',
+        backgroundColor: '#DF5795',
         autoHideMenuBar: true,
         icon: path.join(__dirname, 'assets/icons/icon.png'),
         webPreferences: {
