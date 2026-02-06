@@ -1,4 +1,4 @@
-const CACHE_NAME = 'jolanda-v1';
+const CACHE_NAME = 'jolanda-v2';
 const ASSETS = [
     './',
     './index.html',

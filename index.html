@@ -46,10 +46,95 @@
     <link rel="icon" type="image/svg+xml" href="assets/icons/icon.svg" sizes="any">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style"
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap">
     <link
         href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+
+    <style>
+        :root {
+            --bg-color: #0d0015;
+            --text-color: #e0d0f0;
+            --tv-frame: #1a1a1a;
+            --ct-blue: #00428d;
+            --ct-red: #e3001a;
+        }
+
+        body {
+            margin: 0;
+            background-color: var(--bg-color);
+            background: radial-gradient(circle at center, #1a0b2e 0%, #0d0015 100%);
+            color: var(--text-color);
+            font-family: 'Playfair Display', serif;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .tv-container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .tv-frame {
+            background: var(--tv-frame);
+            border-radius: 40px;
+            width: 100%;
+            max-width: 1200px;
+            aspect-ratio: 16/9;
+            position: relative;
+            overflow: hidden;
+            border: 8px solid #333;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .screen {
+            flex: 1;
+            background: #000;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            border-radius: 10px;
+        }
+
+        .crt-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 100;
+        }
+
+        .scanlines {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
+            background-size: 100% 4px;
+            position: absolute;
+        }
+
+        .app-container {
+            width: 100%;
+            height: 100%;
+            background: var(--bg-color);
+            position: relative;
+            z-index: 10;
+        }
+    </style>
+    <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="style.css">
+    </noscript>
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#1a0b2e">
     <link rel="apple-touch-icon" href="assets/icons/icon.svg">
@@ -80,7 +165,8 @@
 
                         <main>
                             <div class="controls">
-                                <button id="draw-btn" class="mystic-btn" aria-label="Vyložit tři karty pro předpověď">Vyložit Karty</button>
+                                <button id="draw-btn" class="mystic-btn"
+                                    aria-label="Vyložit tři karty pro předpověď">Vyložit Karty</button>
                             </div>
 
                             <div class="table-surface">
