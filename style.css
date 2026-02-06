@@ -20,18 +20,14 @@
 
 body {
     font-family: 'Playfair Display', serif;
-    background-color: #000;
+    background-color: var(--bg-color);
     color: var(--text-color);
     overflow: hidden;
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: radial-gradient(circle at center, #222 0%, #000 100%);
-    /* Living room background feel */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1593359674241-55cd0bedee40?q=80&w=2070&auto=format&fit=crop');
-    background-size: cover;
-    background-position: center;
+    background: radial-gradient(circle at center, #1a0b2e 0%, #0d0015 100%);
 }
 
 .tv-container {
