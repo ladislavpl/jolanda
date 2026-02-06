@@ -27,11 +27,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-<<<<<<< HEAD
-    background: radial-gradient(circle at center, #1a0b2e 0%, #0d0015 100%);
-=======
     background: radial-gradient(circle at center, #DF5795 0%, #a62a63 100%);
->>>>>>> electron-app
 }
 
 .tv-container {
