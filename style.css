@@ -5,7 +5,7 @@
     --accent-purple: #ffffff;
     --deep-purple: #a62a63;
     --card-bg: #8c1e4d;
-    --glass-bg: rgba(223, 87, 149, 0.7);
+    --glass-bg: rgba(140, 30, 77, 0.85); /* Darker, more opaque for readability */
     --glass-border: rgba(255, 255, 255, 0.5);
     --ct-blue: #DF5795;
     --ct-red: #C02565;
@@ -27,11 +27,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-<<<<<<< HEAD
-    background: radial-gradient(circle at center, #1a0b2e 0%, #0d0015 100%);
-=======
     background: radial-gradient(circle at center, #DF5795 0%, #a62a63 100%);
->>>>>>> electron-app
 }
 
 .tv-container {
@@ -152,11 +148,12 @@ h1 {
 }
 
 .subtitle {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-style: italic;
-    opacity: 0.8;
+    opacity: 1;
     margin-bottom: 3rem;
     color: var(--text-color);
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 
 .mystic-btn {
@@ -364,7 +361,7 @@ h1 {
 .tv-clock {
     position: absolute;
     top: 20px;
-    left: 30px;
+    right: 30px;
     z-index: 110;
     color: #fff;
     font-family: 'Courier New', Courier, monospace;
@@ -409,6 +406,7 @@ h1 {
     animation: ticker 30s linear infinite;
     padding-left: 100%;
     font-size: 1.1rem;
+    font-weight: bold;
 }
 
 @keyframes ticker {
@@ -452,7 +450,7 @@ h1 {
 
     .tv-clock {
         top: 10px;
-        left: 15px;
+        right: 15px;
         font-size: 1rem;
     }
 
